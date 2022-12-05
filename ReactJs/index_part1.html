@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="./style.css"/>
+        <title>Hello World App</title>
+        <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script type="text/babel">
+        const root = document.getElementById("root");
+        //const span = React.createElement("span", null, "Hello I am a span");
+        /*
+        const h3 = React.createElement("h3", {
+            id : 'title',
+            onmouseenter: () => console.log('mouse enter')
+        }, "Hello I am a h3");
+        */
+        /* using JSX 1*/
+        //const Title = (<h3 id="title" onMouseEnter={() => console.log('mouse enter')}>Hello I am a h3</h3>);
+        
+        /*using JSX 2*/
+        function Title() {
+            return (
+                <h3 id="title" 
+                onMouseEnter={() => console.log('mouse enter')}>
+                Hello I am a h3</h3>
+            ); 
+        }
+        
+        /*
+        const btn = React.createElement("button", {
+            onclick : () => console.log("im clicked")
+        }, "Click me");
+        */
+        /* using JSX */
+        const Button = () => (
+            <button 
+                style={{backgroundColor : "tomato"}}
+                onClick={() => console.log("im clicked")}
+            >Click me</button>
+        );
+        //const container = React.createElement("div", null, [h3, btn]);
+        
+        /*using JSX 1*/
+        //const container = React.createElement("div", null, [Title, Button]);
+        //ReactDOM.render(container, root);
+
+        /*using JSX 2*/
+        // 컴포넌트의 첫글자는 대문자로! html태그와 구분됨
+        const Container = ()=> (
+            <div>
+                <Title />
+                <Button />
+                <button>html btn</button>
+            </div>
+        );
+        ReactDOM.render(<Container />, root);
+    </script>
+</html>
+
+<!-- JSX javascript 확장 문법 : Babel 사용  
+
+브라우저 요소 확인시 head 밑에 변환되어서 들어가 있음! 
+<script>"use strict";
+
+    var root = document.getElementById("root");
+
+    var Title = /*#__PURE__*/React.createElement("h3", {
+      id: "title",
+      onMouseEnter: function onMouseEnter() {
+        return console.log('mouse enter');
+      }
+    }, "Hello I am a h3");
+    var Button = /*#__PURE__*/React.createElement("button", {
+      style: {
+        backgroundColor: "tomato"
+      },
+      onClick: function onClick() {
+        return console.log("im clicked");
+      }
+    }, "Click me");
+    
+    var container = React.createElement("div", null, [Title, Button]);
+    ReactDOM.render(container, root);
+
+    //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJyb290IiwiZG9jdW1lbnQiLCJnZXRFbGVtZW50QnlJZCIsIlRpdGxlIiwiY29uc29sZSIsImxvZyIsIkJ1dHRvbiIsImJhY2tncm91bmRDb2xvciIsImNvbnRhaW5lciIsIlJlYWN0IiwiY3JlYXRlRWxlbWVudCIsIlJlYWN0RE9NIiwicmVuZGVyIl0sInNvdXJjZXMiOlsiSW5saW5lIEJhYmVsIHNjcmlwdCJdLCJzb3VyY2VzQ29udGVudCI6WyJcbiAgICAgICAgY29uc3Qgcm9vdCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwicm9vdFwiKTtcbiAgICAgICAgLy9jb25zdCBzcGFuID0gUmVhY3QuY3JlYXRlRWxlbWVudChcInNwYW5cIiwgbnVsbCwgXCJIZWxsbyBJIGFtIGEgc3BhblwiKTtcbiAgICAgICAgLypcbiAgICAgICAgY29uc3QgaDMgPSBSZWFjdC5jcmVhdGVFbGVtZW50KFwiaDNcIiwge1xuICAgICAgICAgICAgaWQgOiAndGl0bGUnLFxuICAgICAgICAgICAgb25tb3VzZWVudGVyOiAoKSA9PiBjb25zb2xlLmxvZygnbW91c2UgZW50ZXInKVxuICAgICAgICB9LCBcIkhlbGxvIEkgYW0gYSBoM1wiKTtcbiAgICAgICAgKi9cbiAgICAgICAgLyogdXNpbmcgSlNYICovXG4gICAgICAgIGNvbnN0IFRpdGxlID0gKDxoMyBpZD1cInRpdGxlXCIgb25Nb3VzZUVudGVyPXsoKSA9PiBjb25zb2xlLmxvZygnbW91c2UgZW50ZXInKX0+SGVsbG8gSSBhbSBhIGgzPC9oMz4pO1xuICAgICAgICAvKlxuICAgICAgICBjb25zdCBidG4gPSBSZWFjdC5jcmVhdGVFbGVtZW50KFwiYnV0dG9uXCIsIHtcbiAgICAgICAgICAgIG9uY2xpY2sgOiAoKSA9PiBjb25zb2xlLmxvZyhcImltIGNsaWNrZWRcIilcbiAgICAgICAgfSwgXCJDbGljayBtZVwiKTtcbiAgICAgICAgKi9cbiAgICAgICAgLyogdXNpbmcgSlNYICovXG4gICAgICAgIGNvbnN0IEJ1dHRvbiA9IChcbiAgICAgICAgICAgIDxidXR0b24gXG4gICAgICAgICAgICAgICAgc3R5bGU9e3tiYWNrZ3JvdW5kQ29sb3IgOiBcInRvbWF0b1wifX1cbiAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBjb25zb2xlLmxvZyhcImltIGNsaWNrZWRcIil9XG4gICAgICAgICAgICA+Q2xpY2sgbWU8L2J1dHRvbj5cbiAgICAgICAgKTtcbiAgICAgICAgLy9jb25zdCBjb250YWluZXIgPSBSZWFjdC5jcmVhdGVFbGVtZW50KFwiZGl2XCIsIG51bGwsIFtoMywgYnRuXSk7XG4gICAgICAgIGNvbnN0IGNvbnRhaW5lciA9IFJlYWN0LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIiwgbnVsbCwgW1RpdGxlLCBCdXR0b25dKTtcbiAgICAgICAgUmVhY3RET00ucmVuZGVyKGNvbnRhaW5lciwgcm9vdCk7XG4gICAgIl0sIm1hcHBpbmdzIjoiOztBQUNRLElBQU1BLElBQUksR0FBR0MsUUFBUSxDQUFDQyxjQUFjLENBQUMsTUFBTSxDQUFDO0FBQzVDO0FBQ0E7QUFDUjtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ1E7QUFDQSxJQUFNQyxLQUFLLGdCQUFJO0VBQUksRUFBRSxFQUFDLE9BQU87RUFBQyxZQUFZLEVBQUU7SUFBQSxPQUFNQyxPQUFPLENBQUNDLEdBQUcsQ0FBQyxhQUFhLENBQUM7RUFBQTtBQUFDLHFCQUFzQjtBQUNuRztBQUNSO0FBQ0E7QUFDQTtBQUNBO0FBQ1E7QUFDQSxJQUFNQyxNQUFNLGdCQUNSO0VBQ0ksS0FBSyxFQUFFO0lBQUNDLGVBQWUsRUFBRztFQUFRLENBQUU7RUFDcEMsT0FBTyxFQUFFO0lBQUEsT0FBTUgsT0FBTyxDQUFDQyxHQUFHLENBQUMsWUFBWSxDQUFDO0VBQUE7QUFBQyxjQUVoRDtBQUNEO0FBQ0EsSUFBTUcsU0FBUyxHQUFHQyxLQUFLLENBQUNDLGFBQWEsQ0FBQyxLQUFLLEVBQUUsSUFBSSxFQUFFLENBQUNQLEtBQUssRUFBRUcsTUFBTSxDQUFDLENBQUM7QUFDbkVLLFFBQVEsQ0FBQ0MsTUFBTSxDQUFDSixTQUFTLEVBQUVSLElBQUksQ0FBQyJ9
+</script>
+
+    -->
