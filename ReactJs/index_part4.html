@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="./style.css"/>
+        <title>Hello World App</title>
+        <!--
+        <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        -->
+        <!-- prop-type error 안나와서 변경함-->
+        <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script type="text/babel">
+        /*
+        function Btn({text, onClick}){ //props : properties 
+            // Btn({banana : "Save Changes"}); 
+        //function Btn({banana}){ //shortcut : property를 object로 부터 꺼냄 바로 {banana}로 사용 가능함 
+        //function Btn({banana, text}){ //이렇게도 받을수 있음 props = {} 이고 그 안에 있는것을 {banana, text} 이렇게 받음 
+            //<Btn banana="Save Changes" text="hi"/>
+            return <button
+                        style={{
+                            backgroundColor : "tomato"
+                            , color : "white"
+                            , padding : "10px 20px"
+                            , border : 0
+                            , borderRadius : 10
+                            , fontSize : {fontSize}
+                        }} onClick={onClick}>
+                        {text}</button>;
+        }*/
+        /* props-type */     
+        function Btn({text, fontSize = 12}){ 
+            return <button
+                        style={{
+                            backgroundColor : "tomato"
+                            , color : "white"
+                            , padding : "10px 20px"
+                            , border : 0
+                            , borderRadius : 10
+                            , fontSize
+                        }}>
+                        {text}</button>;
+        }
+        Btn.propTypes = {
+            text : PropTypes.string.isRequired,
+            fontSize : PropTypes.number
+        };
+        function SaveBtn(){
+            return <button
+                        style={{
+                            backgroundColor : "tomato"
+                            , color : "white"
+                            , padding : "10px 20px"
+                            , border : 0
+                            , borderRadius : 10
+                        }}>
+                Save Changes</button>;
+        }
+        function ConfirmBtn(){
+            return <button
+                        style={{
+                            backgroundColor : "tomato"
+                            , color : "white"
+                            , padding : "10px 20px"
+                            , border : 0
+                            , borderRadius : 10
+                        }}>
+                Confirm</button>;
+        }
+        
+        //const MemorizedBtn = React.memo(Btn); //변화한것만 render
+        function App(){
+            const [value, setValue] = React.useState("Save Changes");
+            const changeValue = () => setValue("Revert Changes");
+            /*
+            //MemorizedBtn 추가 전
+            return (
+                <div>
+                    <Btn text={value} onClick={changeValue}/>
+                    <Btn text="Continue" />                
+                </div>
+            )
+            */
+            /*
+            //MemorizedBtn 
+            return (
+                <div>
+                    
+                    <MemorizedBtn text={value} onClick={changeValue}/>
+                    <MemorizedBtn text="Continue" fontSize={"ws8"} />                
+                </div>
+            )
+            */
+            /* props-type */            
+            return (
+                <div>
+                    <Btn text={value}/>
+                    <Btn text="Continue"  fontSize={18}/>        
+                </div>
+            )
+        };
+
+        const root = document.getElementById("root");
+        ReactDOM.render(<App />, root);
+    </script>
+</html>
