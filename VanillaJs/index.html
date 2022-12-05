@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Last Vanilla Challenge</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="src/style.css"/>
+  </head>
+
+  <body>
+    <div id="welcom-box" class="hidden">
+      <h1>Hello!</h1>
+      <h3 class="clock-box"></h3>
+      <form id="login-form">
+        <input required maxlength="15" type="text" placeholder="What is your name?"/>
+        <input type="submit" value="Login"/>
+      </form>
+    </div>
+    
+    <div id="login-box" class="hidden">
+      <div class="user-box">
+        <form id="user-form">
+          <span></span>
+          <input type="submit" value="Logout"/>
+        </form>
+      </div>
+      <div>
+        <h1>TODAY's</h1>
+        <div class="divTable">
+          <div class="divTableRow">
+            <div id="todo-box" class="divTableCell">
+              <h3>TODO!</h3>
+              <div>
+                <span>todo list</span><input type="button" class="todo-add-btn" value="+"/>
+                <form id="todo-form" class="hidden">
+                  <label>Add To Do</label><br/>
+                  <input type="text" placeholder="Write a To Do and Press Enter" required/>
+                </form>
+                <ul id="todo-list"></ul>
+              </div>
+            </div>
+            <div id="info-box" class="divTableCell">
+              
+              <h3>TIME!</h3>
+              <p class="clock-box"></p>
+              <h3>WEATHER!</h3>
+              <p id="weather-box">
+                <span></span>
+                <span></span>
+              </p>
+            </div>
+          </div>        
+        </div>
+      </div>
+      
+    </div>
+    <script src ="src/index.js"></script>
+  </body>
+</html>
