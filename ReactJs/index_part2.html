@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="./style.css"/>
+        <title>Hello World App</title>
+        <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script type="text/babel">
+        /* not good way 
+        const root = document.getElementById("root");
+        let counter = 0;
+
+        function countUp() {
+            counter = counter + 1 ;
+            render();
+        }
+
+        function render(){
+            ReactDOM.render(<Container />, root);
+        }
+        const Container = ()=> (
+            <div>
+                <h3>Total clicks : {counter}</h3>
+                <button onClick={countUp}>Click me!</button>
+            </div>
+        );
+        render();
+        */
+        const root = document.getElementById("root");
+
+        function App(){ 
+            //const data = React.useState(0);  
+                    // React.useState() : [undefined, ƒ]
+                    // React.useState(10) : [10, ƒ] = let counter = 10; function countUp(){} 와 같은 역할
+            //console.log(data);
+            //const counter = data[0];
+            //const modifier = data[1];
+            /*
+            let [counter, modifier] = React.useState(0);
+            const onClick = () => {
+                counter = counter + 1;
+                console.log(counter);
+            };
+            */
+            const [counter, setCounter] = React.useState(0);
+            const onClick = () => {
+                //setCounter(counter + 1);  //값 직접 설정
+                setCounter((current) => current + 1); //setCounter(counter + 1); 와 같은 내용  current state 를 얻게함
+            };
+            return (
+                <div>
+                    <h3>Total clicks : {counter}</h3>
+                    <button onClick={onClick}>Click me!</button>
+                </div>
+            )
+        };
+        ReactDOM.render(<App />, root);
+
+        /*
+            const food = ["tomato", "potato"];
+            const [myFavFood , mySecondFavFood] = food;
+            console.log(myFavFood) -> "tomato" 
+        */
+    </script>
+</html>
