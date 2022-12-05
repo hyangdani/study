@@ -1,0 +1,52 @@
+.hidden{
+    display: none;
+}
+#welcom-box{
+    text-align: center;
+    margin: 50% auto;
+}
+#login-box .user-box{
+    text-align:right;
+}
+#login-box h1{
+    text-align:center;
+}
+.divTable{ 
+    display: table; 
+    width: 100%;
+}
+.divTableRow { display: table-row; }
+.divTableCell {
+    display: table-cell;
+    padding: 30px;
+}
+#todo-box{
+    border-right: 1px solid black;
+    box-sizing: border-box;
+    width: 50%;
+}
+
+#todo-form{
+    padding: 20px;
+    background-color:  rgba( 255, 255, 255, 0.5 );
+}
+#todo-form > input {
+    width: 200px;
+}
+
+.todo-add-btn{
+    margin-left:20px;
+}
+
+#todo-list{
+    margin-top:10px;
+    padding:20px 20px;
+    border-radius: 10px;
+    background-color:  rgba( 255, 255, 255, 0.2);
+}
+#todo-list li{
+    margin: 0 0 5px 0;
+    padding: 0;
+    list-style: square;
+    margin-left: 20px;
+}
