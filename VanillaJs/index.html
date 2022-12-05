@@ -1,58 +1,43 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Last Vanilla Challenge</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="src/style.css"/>
-  </head>
-
-  <body>
-    <div id="welcom-box" class="hidden">
-      <h1>Hello!</h1>
-      <h3 class="clock-box"></h3>
-      <form id="login-form">
-        <input required maxlength="15" type="text" placeholder="What is your name?"/>
-        <input type="submit" value="Login"/>
-      </form>
-    </div>
-    
-    <div id="login-box" class="hidden">
-      <div class="user-box">
-        <form id="user-form">
-          <span></span>
-          <input type="submit" value="Logout"/>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="style.css"/>
+        <title>Hello World App</title>
+    </head>
+    <body>
+        <form id="login-form" class="hidden">
+            <input required maxlength="15" type="text" placeholder="What is your name?"/>
+            <input type="submit" value="Login"/>
         </form>
-      </div>
-      <div>
-        <h1>TODAY's</h1>
-        <div class="divTable">
-          <div class="divTableRow">
-            <div id="todo-box" class="divTableCell">
-              <h3>TODO!</h3>
-              <div>
-                <span>todo list</span><input type="button" class="todo-add-btn" value="+"/>
-                <form id="todo-form" class="hidden">
-                  <label>Add To Do</label><br/>
-                  <input type="text" placeholder="Write a To Do and Press Enter" required/>
-                </form>
-                <ul id="todo-list"></ul>
-              </div>
-            </div>
-            <div id="info-box" class="divTableCell">
-              
-              <h3>TIME!</h3>
-              <p class="clock-box"></p>
-              <h3>WEATHER!</h3>
-              <p id="weather-box">
-                <span></span>
-                <span></span>
-              </p>
-            </div>
-          </div>        
+        <h2 id="clock"></h2>
+        <h1 id="greeting" class="hidden"></h1>
+        
+        <form id="todo-form">
+            <input type="text" placeholder="Write a To Do and Press Enter" required/>
+        </form>
+        <ul id="todo-list">
+
+        </ul>
+
+        <div id="quote">
+            <span></span>
+            <span></span>
         </div>
-      </div>
-      
-    </div>
-    <script src ="src/index.js"></script>
-  </body>
+
+        <a href="https://google.com">go link </a>
+        
+        <div id="weather">
+            <span></span>
+            <span></span>
+        </div>
+
+        <script src ="./js/greetings.js"></script>
+        <script src ="./js/clock.js"></script>
+        <script src ="./js/quotes.js"></script>
+        <script src ="./js/background.js"></script>
+        <script src ="./js/todo.js"></script>
+        <script src ="./js/weather.js"></script>
+    </body>
 </html>
