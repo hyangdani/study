@@ -1,5 +1,6 @@
 # README INDEX
 + [Create React App](#CreateReactApp)<br/>
++ [Start React App](#StartReactApp)<br/>
 + [Problems](#Problems)<br/>
 + [README Markdown](#markdownWiki)<br/>
 
@@ -20,6 +21,31 @@
 3. create react app
 ```
 > npx create-react-app react-for-beginners
+```
+
+------------------------------------------------------
+<a name="StartReactApp"></a>
+# Start React App
+## start
+> cd .....\react-for-beginners
+> npm run start
+```
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+새로운 크로스 플랫폼 PowerShell 사용 https://aka.ms/pscore6
+
+Compiled successfully!
+
+You can now view react-for-beginners in the browser.
+
+  Local:            http://localhost:3000
+  On Your Network:  http://000.000.000.000:3000
+
+Note that the development build is not optimized.
+To create a production build, use npm run build. 
+
+webpack compiled successfully
 ```
 ------------------------------------------------------
 <a name="Problems"></a>
