@@ -52,7 +52,7 @@ webpack compiled successfully
 <a name="StudyReactApp"></a>
 # Study React App
 ## react-router-dom
-> npm install react-router-dom
+> npm install react-router-dom   ( > npm i react-router-dom@5.3.0 )
 
 ------------------------------------------------------
 
