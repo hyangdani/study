@@ -80,3 +80,13 @@ webpack compiled successfully
 <a name="markdownWiki"></a>
 # README Markdown
 >https://ko.wikipedia.org/wiki/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4
+
+
+------------------------------------------------------
+Breaking Change : 버전 업데이트에 따른 코드 수정 - React 에는 없음!! 
+
+class Clock extends React.Componetent{}~~ 이건 옛날 코드! 
+------------------------------------------------------
+
+
+
